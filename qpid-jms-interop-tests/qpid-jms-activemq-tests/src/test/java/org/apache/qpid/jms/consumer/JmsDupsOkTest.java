@@ -30,13 +30,13 @@ import jakarta.jms.MessageListener;
 import jakarta.jms.Queue;
 import jakarta.jms.Session;
 
-import org.apache.qpid.jms.support.AmqpTestSupport;
+import org.apache.qpid.jms.support.RabbitMqTestSupport;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Timeout;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class JmsDupsOkTest extends AmqpTestSupport {
+public class JmsDupsOkTest extends RabbitMqTestSupport {
 
     protected static final Logger LOG = LoggerFactory.getLogger(JmsDupsOkTest.class);
 

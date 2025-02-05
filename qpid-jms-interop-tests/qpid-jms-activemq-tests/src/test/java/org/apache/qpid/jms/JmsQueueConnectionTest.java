@@ -24,14 +24,14 @@ import jakarta.jms.JMSException;
 import jakarta.jms.JMSSecurityException;
 import jakarta.jms.QueueConnection;
 
-import org.apache.qpid.jms.support.AmqpTestSupport;
+import org.apache.qpid.jms.support.RabbitMqTestSupport;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Timeout;
 
 /**
  * Test basic QueueConnection creation etc.
  */
-public class JmsQueueConnectionTest extends AmqpTestSupport {
+public class JmsQueueConnectionTest extends RabbitMqTestSupport {
 
     @Test
     public void testCreateQueueConnection() throws JMSException {

@@ -41,7 +41,7 @@ import org.apache.activemq.broker.jmx.QueueViewMBean;
 import org.apache.qpid.jms.JmsConnection;
 import org.apache.qpid.jms.JmsConnectionListener;
 import org.apache.qpid.jms.message.JmsInboundMessageDispatch;
-import org.apache.qpid.jms.support.AmqpTestSupport;
+import org.apache.qpid.jms.support.RabbitMqTestSupport;
 import org.apache.qpid.jms.support.QpidJmsTestSupport;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Timeout;
@@ -49,7 +49,7 @@ import org.junit.jupiter.api.Timeout;
 /**
  * Test consumer behavior for Transacted Session Consumers.
  */
-public class JmsTransactedConsumerTest extends AmqpTestSupport {
+public class JmsTransactedConsumerTest extends RabbitMqTestSupport {
 
     private final String MSG_NUM = "MSG_NUM";
     private final int MSG_COUNT = 1000;

@@ -28,14 +28,14 @@ import javax.jms.TextMessage;
 import javax.jms.Topic;
 
 import org.apache.activemq.broker.jmx.QueueViewMBean;
-import org.apache.qpid.jms.support.AmqpTestSupport;
+import org.apache.qpid.jms.support.RabbitMqTestSupport;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 @Disabled
-public class ProduceToOpenWireTest extends AmqpTestSupport {
+public class ProduceToOpenWireTest extends RabbitMqTestSupport {
 
     protected static final Logger LOG = LoggerFactory.getLogger(ProduceToOpenWireTest.class);
 

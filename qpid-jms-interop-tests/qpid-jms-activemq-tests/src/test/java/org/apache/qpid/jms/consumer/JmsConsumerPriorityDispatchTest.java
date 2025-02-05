@@ -34,14 +34,14 @@ import jakarta.jms.Session;
 import org.apache.qpid.jms.JmsConnection;
 import org.apache.qpid.jms.JmsConnectionListener;
 import org.apache.qpid.jms.message.JmsInboundMessageDispatch;
-import org.apache.qpid.jms.support.AmqpTestSupport;
+import org.apache.qpid.jms.support.RabbitMqTestSupport;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Timeout;
 
 /**
  * Test for Message priority ordering.
  */
-public class JmsConsumerPriorityDispatchTest extends AmqpTestSupport {
+public class JmsConsumerPriorityDispatchTest extends RabbitMqTestSupport {
 
     private final int MSG_COUNT = 10;
 

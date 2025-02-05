@@ -33,7 +33,7 @@ import org.apache.activemq.broker.jmx.QueueViewMBean;
 import org.apache.activemq.broker.region.policy.PolicyEntry;
 import org.apache.activemq.broker.region.policy.PolicyMap;
 import org.apache.activemq.broker.region.policy.VMPendingQueueMessageStoragePolicy;
-import org.apache.qpid.jms.support.AmqpTestSupport;
+import org.apache.qpid.jms.support.RabbitMqTestSupport;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -41,7 +41,7 @@ import org.junit.jupiter.api.Test;
  * Collect some basic throughput data on message producer.
  */
 @Disabled
-public class ProduceToAMQPTest extends AmqpTestSupport {
+public class ProduceToAMQPTest extends RabbitMqTestSupport {
 
     private final int MSG_COUNT = 50 * 1000;
     private final int NUM_RUNS = 20;

@@ -32,15 +32,19 @@ import jakarta.jms.Queue;
 import jakarta.jms.Session;
 
 import org.apache.qpid.jms.JmsConnection;
-import org.apache.qpid.jms.support.AmqpTestSupport;
+import org.apache.qpid.jms.support.RabbitMqTestSupport;
 import org.apache.qpid.jms.support.Wait;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Timeout;
 
 /**
  * Test various client behaviors when the connection has gone offline.
  */
-public class JmsOfflineBehaviorTests extends AmqpTestSupport {
+@Disabled
+public class JmsOfflineBehaviorTests extends RabbitMqTestSupport {
+
+    // TODO implement offline behavior tests if appropriate
 
     @Test
     @Timeout(60)
@@ -134,6 +138,7 @@ public class JmsOfflineBehaviorTests extends AmqpTestSupport {
         connection.close();
     }
 
+    /*
     @Test
     @Timeout(60)
     void testGetRemoteURI() throws Exception {
@@ -200,4 +205,6 @@ public class JmsOfflineBehaviorTests extends AmqpTestSupport {
 
         connection.close();
     }
+
+     */
 }

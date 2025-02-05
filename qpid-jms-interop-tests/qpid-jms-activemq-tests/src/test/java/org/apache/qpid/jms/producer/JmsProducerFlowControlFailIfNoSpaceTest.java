@@ -34,7 +34,7 @@ import org.apache.activemq.broker.region.policy.PolicyMap;
 import org.apache.activemq.broker.region.policy.VMPendingQueueMessageStoragePolicy;
 import org.apache.activemq.broker.region.policy.VMPendingSubscriberMessageStoragePolicy;
 import org.apache.qpid.jms.JmsConnection;
-import org.apache.qpid.jms.support.AmqpTestSupport;
+import org.apache.qpid.jms.support.RabbitMqTestSupport;
 import org.apache.qpid.jms.support.Wait;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -46,7 +46,7 @@ import org.slf4j.LoggerFactory;
  * Tests behavior of client when broker is configured to send an error back
  * when there is no space available for a send.
  */
-public class JmsProducerFlowControlFailIfNoSpaceTest extends AmqpTestSupport {
+public class JmsProducerFlowControlFailIfNoSpaceTest extends RabbitMqTestSupport {
 
     protected static final Logger LOG = LoggerFactory.getLogger(JmsProducerFlowControlFailIfNoSpaceTest.class);
 

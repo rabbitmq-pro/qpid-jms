@@ -39,7 +39,7 @@ import org.apache.activemq.broker.region.policy.PolicyEntry;
 import org.apache.activemq.broker.region.policy.PolicyMap;
 import org.apache.activemq.broker.region.policy.VMPendingQueueMessageStoragePolicy;
 import org.apache.qpid.jms.JmsConnection;
-import org.apache.qpid.jms.support.AmqpTestSupport;
+import org.apache.qpid.jms.support.RabbitMqTestSupport;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
@@ -48,7 +48,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 @Disabled
-public class ProducerAndConsumerBench extends AmqpTestSupport  {
+public class ProducerAndConsumerBench extends RabbitMqTestSupport  {
 
     private static final Logger LOG = LoggerFactory.getLogger(ProducerAndConsumerBench.class);
 

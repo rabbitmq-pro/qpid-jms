@@ -505,4 +505,12 @@ public class QpidJmsTestSupport {
     protected String getTestName() {
         return getClass().getSimpleName() + "." + testMethodName;
     }
+
+    protected String adminUsername() {
+        return "system";
+    }
+
+    protected String adminPassword() {
+        return "manager";
+    }
 }

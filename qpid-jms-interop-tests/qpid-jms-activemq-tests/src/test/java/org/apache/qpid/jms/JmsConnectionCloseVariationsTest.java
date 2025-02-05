@@ -18,7 +18,7 @@ package org.apache.qpid.jms;
 
 import jakarta.jms.Connection;
 
-import org.apache.qpid.jms.support.AmqpTestSupport;
+import org.apache.qpid.jms.support.RabbitMqTestSupport;
 import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Timeout;
@@ -26,7 +26,7 @@ import org.junit.jupiter.api.Timeout;
 /**
  * A test case for Connection close called under different circumstances.
  */
-public class JmsConnectionCloseVariationsTest extends AmqpTestSupport {
+public class JmsConnectionCloseVariationsTest extends RabbitMqTestSupport {
 
     @Test
     @Timeout(60)

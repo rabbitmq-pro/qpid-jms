@@ -32,14 +32,14 @@ import jakarta.jms.StreamMessage;
 import jakarta.jms.TextMessage;
 
 import org.apache.activemq.broker.jmx.QueueViewMBean;
-import org.apache.qpid.jms.support.AmqpTestSupport;
+import org.apache.qpid.jms.support.RabbitMqTestSupport;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Timeout;
 
 /**
  * Test basic MessageProducer functionality.
  */
-public class JmsProduceMessageTypesTest extends AmqpTestSupport {
+public class JmsProduceMessageTypesTest extends RabbitMqTestSupport {
 
     @Test
     @Timeout(60)

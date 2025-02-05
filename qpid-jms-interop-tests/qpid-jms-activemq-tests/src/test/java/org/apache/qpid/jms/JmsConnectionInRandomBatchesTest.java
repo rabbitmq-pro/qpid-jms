@@ -22,7 +22,7 @@ import java.util.Random;
 
 import jakarta.jms.Connection;
 
-import org.apache.qpid.jms.support.AmqpTestSupport;
+import org.apache.qpid.jms.support.RabbitMqTestSupport;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -33,7 +33,7 @@ import org.junit.jupiter.api.Timeout;
  * Test for creation of several open connections in a series of randomly
  * sized batches over time.
  */
-public class JmsConnectionInRandomBatchesTest extends AmqpTestSupport  {
+public class JmsConnectionInRandomBatchesTest extends RabbitMqTestSupport  {
 
     private final List<Connection> batch = new ArrayList<Connection>();
     private final Random batchSizeGenerator = new Random();

@@ -37,7 +37,7 @@ import jakarta.jms.TextMessage;
 
 import org.apache.activemq.broker.jmx.QueueViewMBean;
 import org.apache.qpid.jms.provider.amqp.message.AmqpMessageSupport;
-import org.apache.qpid.jms.support.AmqpTestSupport;
+import org.apache.qpid.jms.support.RabbitMqTestSupport;
 import org.apache.qpid.jms.support.Wait;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Timeout;
@@ -45,7 +45,7 @@ import org.junit.jupiter.api.Timeout;
 /**
  * Test Various behaviors of the JMS MessageProducer implementation.
  */
-public class JmsMessageProducerTest extends AmqpTestSupport {
+public class JmsMessageProducerTest extends RabbitMqTestSupport {
 
     @Test
     @Timeout(60)

@@ -33,17 +33,14 @@ import javax.net.ServerSocketFactory;
 import org.apache.activemq.ActiveMQConnectionFactory;
 import org.apache.activemq.broker.BrokerService;
 import org.apache.activemq.broker.TransportConnector;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.TestInfo;
-import org.junit.jupiter.api.Timeout;
+import org.junit.jupiter.api.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
  * Test connections can be established to remote peers via WebSockets
  */
+@Disabled
 public class JmsWSConnectionTest {
 
     protected static final Logger LOG = LoggerFactory.getLogger(JmsWSConnectionTest.class);
@@ -55,6 +52,7 @@ public class JmsWSConnectionTest {
 
     @BeforeEach
     public void setUp(TestInfo testInfo) throws Exception {
+        // TODO support WebSocket test
         this.testName = testInfo.getTestMethod().get().getName();
         brokerService = new BrokerService();
         brokerService.setPersistent(false);

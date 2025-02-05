@@ -29,14 +29,14 @@ import jakarta.jms.Session;
 import jakarta.jms.TextMessage;
 
 import org.apache.activemq.broker.jmx.QueueViewMBean;
-import org.apache.qpid.jms.support.AmqpTestSupport;
+import org.apache.qpid.jms.support.RabbitMqTestSupport;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Timeout;
 
 /**
  * Test for messages produced inside a local transaction.
  */
-public class JmsTransactedProducerTest extends AmqpTestSupport {
+public class JmsTransactedProducerTest extends RabbitMqTestSupport {
 
     @Test
     @Timeout(60)

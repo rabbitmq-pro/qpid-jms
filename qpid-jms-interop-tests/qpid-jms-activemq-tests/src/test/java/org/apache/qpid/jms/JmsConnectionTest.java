@@ -34,14 +34,14 @@ import jakarta.jms.MessageProducer;
 import jakarta.jms.Queue;
 import jakarta.jms.Session;
 
-import org.apache.qpid.jms.support.AmqpTestSupport;
+import org.apache.qpid.jms.support.RabbitMqTestSupport;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Timeout;
 
 /**
  * Test for basic JmsConnection functionality and error handling.
  */
-public class JmsConnectionTest extends AmqpTestSupport {
+public class JmsConnectionTest extends RabbitMqTestSupport {
 
     @Test
     @Timeout(30)
@@ -100,8 +100,8 @@ public class JmsConnectionTest extends AmqpTestSupport {
     @Timeout(30)
     public void testCreateConnectionAsSystemAdmin() throws Exception {
         JmsConnectionFactory factory = new JmsConnectionFactory(getBrokerAmqpConnectionURI());
-        factory.setUsername("system");
-        factory.setPassword("manager");
+        factory.setUsername(adminUsername());
+        factory.setPassword(adminPassword());
         connection = factory.createConnection();
         assertNotNull(connection);
         connection.start();
@@ -112,7 +112,7 @@ public class JmsConnectionTest extends AmqpTestSupport {
     @Timeout(30)
     public void testCreateConnectionCallSystemAdmin() throws Exception {
         JmsConnectionFactory factory = new JmsConnectionFactory(getBrokerAmqpConnectionURI());
-        connection = factory.createConnection("system", "manager");
+        connection = factory.createConnection(adminUsername(),adminPassword());
         assertNotNull(connection);
         connection.start();
         connection.close();
@@ -157,14 +157,18 @@ public class JmsConnectionTest extends AmqpTestSupport {
         Message m = session.createTextMessage("Sample text");
         producer.send(m);
 
-        stopPrimaryBroker();
-
         try {
-            connection.close();
-        } catch (Exception ex) {
-            LOG.error("Should not thrown on disconnected connection close(): {}", ex);
-            fail("Should not have thrown an exception.");
+            stopPrimaryBroker();
+            try {
+                connection.close();
+            } catch (Exception ex) {
+                LOG.error("Should not thrown on disconnected connection close(): {}", ex);
+                fail("Should not have thrown an exception.");
+            }
+        } finally {
+          startPrimaryBroker();
         }
+
     }
 
     @Test

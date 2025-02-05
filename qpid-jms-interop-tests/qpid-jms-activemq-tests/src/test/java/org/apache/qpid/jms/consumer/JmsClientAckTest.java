@@ -40,7 +40,7 @@ import jakarta.jms.Session;
 import jakarta.jms.TextMessage;
 
 import org.apache.activemq.broker.jmx.QueueViewMBean;
-import org.apache.qpid.jms.support.AmqpTestSupport;
+import org.apache.qpid.jms.support.RabbitMqTestSupport;
 import org.apache.qpid.jms.support.QpidJmsTestSupport;
 import org.apache.qpid.jms.support.Wait;
 import org.junit.jupiter.api.Disabled;
@@ -52,7 +52,7 @@ import org.slf4j.LoggerFactory;
 /**
  * Test that Session CLIENT_ACKNOWLEDGE works as expected.
  */
-public class JmsClientAckTest extends AmqpTestSupport {
+public class JmsClientAckTest extends RabbitMqTestSupport {
 
     protected static final Logger LOG = LoggerFactory.getLogger(JmsClientAckTest.class);
 

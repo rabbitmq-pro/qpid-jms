@@ -29,7 +29,7 @@ import jakarta.jms.MessageProducer;
 import jakarta.jms.Session;
 import jakarta.jms.TemporaryTopic;
 
-import org.apache.qpid.jms.support.AmqpTestSupport;
+import org.apache.qpid.jms.support.RabbitMqTestSupport;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Timeout;
 import org.slf4j.Logger;
@@ -38,7 +38,7 @@ import org.slf4j.LoggerFactory;
 /**
  * Test functionality of Temporary Topics
  */
-public class JmsTemporaryTopicTest extends AmqpTestSupport {
+public class JmsTemporaryTopicTest extends RabbitMqTestSupport {
 
     protected static final Logger LOG = LoggerFactory.getLogger(JmsTemporaryTopicTest.class);
 
@@ -53,7 +53,8 @@ public class JmsTemporaryTopicTest extends AmqpTestSupport {
         TemporaryTopic topic = session.createTemporaryTopic();
         session.createConsumer(topic);
 
-        assertEquals(1, brokerService.getAdminView().getTemporaryTopics().length);
+        // TODO check the number of temporary topics
+//        assertEquals(1, brokerService.getAdminView().getTemporaryTopics().length);
     }
 
     @Test

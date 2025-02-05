@@ -27,13 +27,13 @@ import jakarta.jms.Session;
 
 import org.apache.activemq.broker.jmx.QueueViewMBean;
 import org.apache.qpid.jms.JmsConnectionFactory;
-import org.apache.qpid.jms.support.AmqpTestSupport;
+import org.apache.qpid.jms.support.RabbitMqTestSupport;
 import org.junit.jupiter.api.Test;
 
 /**
  * Test basic QueueSender functionality.
  */
-public class JmsQueueSenderTest extends AmqpTestSupport {
+public class JmsQueueSenderTest extends RabbitMqTestSupport {
 
     @Test
     public void testCreateQueueSender() throws Exception {

@@ -35,7 +35,7 @@ import jakarta.jms.Session;
 import jakarta.jms.StreamMessage;
 import jakarta.jms.TextMessage;
 
-import org.apache.qpid.jms.support.AmqpTestSupport;
+import org.apache.qpid.jms.support.RabbitMqTestSupport;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInfo;
@@ -44,7 +44,7 @@ import org.junit.jupiter.api.TestInfo;
  * Tests that messages sent and received don't lose data and have expected
  * JMS Message property values.
  */
-public class JmsMessageIntegrityTest extends AmqpTestSupport {
+public class JmsMessageIntegrityTest extends RabbitMqTestSupport {
 
     @BeforeEach
     @Override

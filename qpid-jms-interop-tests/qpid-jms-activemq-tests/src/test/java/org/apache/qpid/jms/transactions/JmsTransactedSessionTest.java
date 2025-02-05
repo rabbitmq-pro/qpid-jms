@@ -30,14 +30,14 @@ import jakarta.jms.Session;
 import jakarta.jms.TextMessage;
 
 import org.apache.activemq.broker.jmx.QueueViewMBean;
-import org.apache.qpid.jms.support.AmqpTestSupport;
+import org.apache.qpid.jms.support.RabbitMqTestSupport;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Timeout;
 
 /**
  * Basic tests for Session in Transacted mode.
  */
-public class JmsTransactedSessionTest extends AmqpTestSupport {
+public class JmsTransactedSessionTest extends RabbitMqTestSupport {
 
     @Test
     @Timeout(60)

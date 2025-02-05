@@ -31,7 +31,7 @@ import jakarta.jms.TemporaryTopic;
 import jakarta.jms.Topic;
 
 import org.apache.activemq.broker.jmx.BrokerViewMBean;
-import org.apache.qpid.jms.support.AmqpTestSupport;
+import org.apache.qpid.jms.support.RabbitMqTestSupport;
 import org.apache.qpid.jms.support.Wait;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Timeout;
@@ -39,7 +39,7 @@ import org.junit.jupiter.api.Timeout;
 /**
  * Test basic Session functionality.
  */
-public class JmsSessionTest extends AmqpTestSupport {
+public class JmsSessionTest extends RabbitMqTestSupport {
 
     @Test
     @Timeout(60)

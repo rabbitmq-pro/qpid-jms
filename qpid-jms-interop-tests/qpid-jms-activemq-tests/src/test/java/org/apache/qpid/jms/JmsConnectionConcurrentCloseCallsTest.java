@@ -26,14 +26,14 @@ import java.util.concurrent.TimeUnit;
 
 import jakarta.jms.Session;
 
-import org.apache.qpid.jms.support.AmqpTestSupport;
+import org.apache.qpid.jms.support.RabbitMqTestSupport;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInfo;
 import org.junit.jupiter.api.Timeout;
 
-public class JmsConnectionConcurrentCloseCallsTest extends AmqpTestSupport {
+public class JmsConnectionConcurrentCloseCallsTest extends RabbitMqTestSupport {
 
     private JmsConnection connection;
     private ExecutorService executor;

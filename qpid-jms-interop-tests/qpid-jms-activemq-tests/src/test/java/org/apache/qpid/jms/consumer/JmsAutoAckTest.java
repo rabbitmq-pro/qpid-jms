@@ -32,14 +32,14 @@ import jakarta.jms.Queue;
 import jakarta.jms.Session;
 
 import org.apache.activemq.broker.jmx.QueueViewMBean;
-import org.apache.qpid.jms.support.AmqpTestSupport;
+import org.apache.qpid.jms.support.RabbitMqTestSupport;
 import org.apache.qpid.jms.support.Wait;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Timeout;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class JmsAutoAckTest extends AmqpTestSupport {
+public class JmsAutoAckTest extends RabbitMqTestSupport {
 
     protected static final Logger LOG = LoggerFactory.getLogger(JmsAutoAckTest.class);
 

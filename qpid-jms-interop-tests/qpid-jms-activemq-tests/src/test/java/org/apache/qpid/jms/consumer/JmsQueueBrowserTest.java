@@ -35,7 +35,7 @@ import jakarta.jms.TextMessage;
 import org.apache.activemq.broker.jmx.QueueViewMBean;
 import org.apache.qpid.jms.JmsConnection;
 import org.apache.qpid.jms.policy.JmsDefaultPrefetchPolicy;
-import org.apache.qpid.jms.support.AmqpTestSupport;
+import org.apache.qpid.jms.support.RabbitMqTestSupport;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Timeout;
 import org.slf4j.Logger;
@@ -45,7 +45,7 @@ import org.slf4j.LoggerFactory;
  * Test Basic Queue Browser implementation.
  */
 @SuppressWarnings("rawtypes")
-public class JmsQueueBrowserTest extends AmqpTestSupport {
+public class JmsQueueBrowserTest extends RabbitMqTestSupport {
 
     protected static final Logger LOG = LoggerFactory.getLogger(JmsQueueBrowserTest.class);
 

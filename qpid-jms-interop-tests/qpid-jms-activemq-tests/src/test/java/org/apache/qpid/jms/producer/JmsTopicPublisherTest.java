@@ -27,13 +27,13 @@ import jakarta.jms.TopicSession;
 
 import org.apache.activemq.broker.jmx.TopicViewMBean;
 import org.apache.qpid.jms.JmsConnectionFactory;
-import org.apache.qpid.jms.support.AmqpTestSupport;
+import org.apache.qpid.jms.support.RabbitMqTestSupport;
 import org.junit.jupiter.api.Test;
 
 /**
  * test basic TopicPublisher functionality.
  */
-public class JmsTopicPublisherTest extends AmqpTestSupport {
+public class JmsTopicPublisherTest extends RabbitMqTestSupport {
 
     @Test
     public void testCreateTopicPublisher() throws Exception {

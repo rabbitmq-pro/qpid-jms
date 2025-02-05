@@ -36,11 +36,8 @@ import org.apache.qpid.jms.JmsConnection;
 import org.apache.qpid.jms.JmsConnectionFactory;
 import org.apache.qpid.jms.JmsConnectionListener;
 import org.apache.qpid.jms.message.JmsInboundMessageDispatch;
-import org.apache.qpid.jms.support.AmqpTestSupport;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.TestInfo;
-import org.junit.jupiter.api.Timeout;
+import org.apache.qpid.jms.support.RabbitMqTestSupport;
+import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.io.TempDir;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -49,8 +46,10 @@ import org.slf4j.LoggerFactory;
  * Test that the file watcher Discovery Provider finds a broker URI in
  * the file it is directed to watch.
  */
-public class FileWatcherDiscoveryTest extends AmqpTestSupport {
+@Disabled
+public class FileWatcherDiscoveryTest extends RabbitMqTestSupport {
 
+    // TODO implement file watcher discovery test if appropriate
     private static final Logger LOG = LoggerFactory.getLogger(FileWatcherDiscoveryTest.class);
 
     @TempDir

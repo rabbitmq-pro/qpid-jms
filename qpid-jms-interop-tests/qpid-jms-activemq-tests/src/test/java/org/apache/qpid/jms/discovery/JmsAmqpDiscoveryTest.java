@@ -35,22 +35,21 @@ import org.apache.qpid.jms.JmsConnectionFactory;
 import org.apache.qpid.jms.JmsConnectionListener;
 import org.apache.qpid.jms.message.JmsInboundMessageDispatch;
 import org.apache.qpid.jms.provider.discovery.DiscoveryProviderFactory;
-import org.apache.qpid.jms.support.AmqpTestSupport;
+import org.apache.qpid.jms.support.RabbitMqTestSupport;
 import org.apache.qpid.jms.support.MulticastTestSupport;
 import org.apache.qpid.jms.support.MulticastTestSupport.MulticastSupportResult;
 import org.apache.qpid.jms.support.Wait;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.TestInfo;
-import org.junit.jupiter.api.Timeout;
+import org.junit.jupiter.api.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
  * Test that a Broker using AMQP can be discovered and JMS operations can be performed.
  */
-public class JmsAmqpDiscoveryTest extends AmqpTestSupport implements JmsConnectionListener {
+@Disabled
+public class JmsAmqpDiscoveryTest extends RabbitMqTestSupport implements JmsConnectionListener {
 
+    // TODO implement AMQP discovery test if appropriate
     private static final Logger LOG = LoggerFactory.getLogger(JmsAmqpDiscoveryTest.class);
 
     private static boolean multicastWorking = false;

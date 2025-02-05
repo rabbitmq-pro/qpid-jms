@@ -34,7 +34,7 @@ import jakarta.jms.Session;
 import jakarta.jms.TextMessage;
 
 import org.apache.activemq.broker.jmx.QueueViewMBean;
-import org.apache.qpid.jms.support.AmqpTestSupport;
+import org.apache.qpid.jms.support.RabbitMqTestSupport;
 import org.apache.qpid.jms.support.Wait;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Timeout;
@@ -42,7 +42,7 @@ import org.junit.jupiter.api.Timeout;
 /**
  * test redelivery policy application in a TX session.
  */
-public class JmsTransactionRedeliveryPolicyTest extends AmqpTestSupport {
+public class JmsTransactionRedeliveryPolicyTest extends RabbitMqTestSupport {
 
     @Override
     public String getAmqpConnectionURIOptions() {
@@ -180,7 +180,7 @@ public class JmsTransactionRedeliveryPolicyTest extends AmqpTestSupport {
                 assertTrue(message.getJMSRedelivered());
                 assertTrue(message instanceof TextMessage);
 
-                LOG.debug("Listener {} received message: {}", listenerNumber, message.getIntProperty(AmqpTestSupport.MESSAGE_NUMBER));
+                LOG.debug("Listener {} received message: {}", listenerNumber, message.getIntProperty(MESSAGE_NUMBER));
 
                 done.countDown();
             } catch (JMSException e) {

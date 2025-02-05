@@ -32,14 +32,14 @@ import jakarta.jms.MessageProducer;
 import jakarta.jms.Queue;
 import jakarta.jms.Session;
 
-import org.apache.qpid.jms.support.AmqpTestSupport;
+import org.apache.qpid.jms.support.RabbitMqTestSupport;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Timeout;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class JmsLargeMessageSendRecvTimedTest extends AmqpTestSupport {
+public class JmsLargeMessageSendRecvTimedTest extends RabbitMqTestSupport {
 
     protected static final Logger LOG = LoggerFactory.getLogger(JmsLargeMessageSendRecvTimedTest.class);
 

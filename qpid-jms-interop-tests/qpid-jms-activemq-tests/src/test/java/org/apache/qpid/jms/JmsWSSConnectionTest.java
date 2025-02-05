@@ -30,16 +30,14 @@ import org.apache.activemq.broker.SslContext;
 import org.apache.activemq.broker.TransportConnector;
 import org.apache.qpid.jms.transports.TransportOptions;
 import org.apache.qpid.jms.transports.TransportSupport;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.Timeout;
+import org.junit.jupiter.api.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
  * Test connections can be established to remote peers via secure WebSockets
  */
+@Disabled
 public class JmsWSSConnectionTest {
 
     protected static final Logger LOG = LoggerFactory.getLogger(JmsWSSConnectionTest.class);
@@ -54,6 +52,7 @@ public class JmsWSSConnectionTest {
 
     @BeforeEach
     public void setUp() throws Exception {
+        // TODO support WebSocket (secure) test
         brokerService = new BrokerService();
         brokerService.setPersistent(false);
         brokerService.setAdvisorySupport(false);

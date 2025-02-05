@@ -25,7 +25,7 @@ import jakarta.jms.MessageProducer;
 import jakarta.jms.Session;
 
 import org.apache.activemq.broker.jmx.QueueViewMBean;
-import org.apache.qpid.jms.support.AmqpTestSupport;
+import org.apache.qpid.jms.support.RabbitMqTestSupport;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -33,7 +33,7 @@ import org.junit.jupiter.api.Test;
  * Compares send rate using a TX Session for QPid JMS and ActiveMQ JMS
  */
 @Disabled
-public class TransactedProducerSendRateTest extends AmqpTestSupport {
+public class TransactedProducerSendRateTest extends RabbitMqTestSupport {
 
     private final int ITERATIONS = 20;
     private final int BATCH_SIZE = 100;
