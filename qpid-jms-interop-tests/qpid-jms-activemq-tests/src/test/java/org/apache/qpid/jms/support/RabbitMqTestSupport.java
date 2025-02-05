@@ -35,7 +35,6 @@ public class RabbitMqTestSupport {
     LOG.info("========== setUp " + getTestName() + " ==========");
     exceptions.clear();
     // TODO we may have to reset the broker here (delete/create queues, etc)
-    startPrimaryBroker();
     this.numberOfMessages = 2000;
   }
 
@@ -60,13 +59,6 @@ public class RabbitMqTestSupport {
         LOG.warn("Error detected on jms connection close in tearDown: {}", e.getMessage());
         firstError = e;
       }
-    }
-
-    try {
-      stopPrimaryBroker();
-    } catch (Exception e) {
-      LOG.warn("Error detected on close of broker in tearDown: {}", e.getMessage());
-      firstError = e;
     }
 
     // TODO deal with multiple brokers
