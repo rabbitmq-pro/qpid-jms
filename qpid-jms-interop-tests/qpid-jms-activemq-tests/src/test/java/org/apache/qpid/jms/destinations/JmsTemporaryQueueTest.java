@@ -16,10 +16,6 @@
  */
 package org.apache.qpid.jms.destinations;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.fail;
-
 import jakarta.jms.Connection;
 import jakarta.jms.IllegalStateException;
 import jakarta.jms.InvalidDestinationException;
@@ -29,11 +25,14 @@ import jakarta.jms.MessageProducer;
 import jakarta.jms.Session;
 import jakarta.jms.TemporaryQueue;
 
+import org.apache.qpid.jms.support.RabbitMqCli;
 import org.apache.qpid.jms.support.RabbitMqTestSupport;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Timeout;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * Test functionality of Temporary Queues.
@@ -52,9 +51,10 @@ public class JmsTemporaryQueueTest extends RabbitMqTestSupport {
         assertNotNull(session);
         TemporaryQueue queue = session.createTemporaryQueue();
         session.createConsumer(queue);
+        String queueName = queue.getQueueName();
 
-        // TODO check the number of temporary queues
-//        assertEquals(1, brokerService.getAdminView().getTemporaryQueues().length);
+        assertTrue(listQueues().stream().filter(RabbitMqCli.QueueInfo::isTemporary)
+            .anyMatch(queueInfo -> queueInfo.name().equals(queueName)));
     }
 
     @Test

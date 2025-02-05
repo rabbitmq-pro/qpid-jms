@@ -1,6 +1,11 @@
 package org.apache.qpid.jms.support;
 
 import jakarta.jms.*;
+import java.net.URI;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Vector;
+import javax.management.MalformedObjectNameException;
 import org.apache.activemq.broker.BrokerService;
 import org.apache.activemq.broker.jmx.BrokerViewMBean;
 import org.apache.activemq.broker.jmx.QueueViewMBean;
@@ -12,19 +17,12 @@ import org.junit.jupiter.api.TestInfo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import javax.management.MalformedObjectNameException;
-import java.net.URI;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Vector;
-
 public class RabbitMqTestSupport {
 
   public static final String MESSAGE_NUMBER = "MessageNumber";
   protected static final Logger LOG = LoggerFactory.getLogger(RabbitMqTestSupport.class);
-
-  protected Connection connection;
   protected final Vector<Throwable> exceptions = new Vector<Throwable>();
+  protected Connection connection;
   protected int numberOfMessages;
   protected String testMethodName;
   protected javax.jms.Connection jmsConnection;
@@ -297,4 +295,9 @@ public class RabbitMqTestSupport {
   protected String adminPassword() {
     return "guest";
   }
+
+  protected List<RabbitMqCli.QueueInfo> listQueues() {
+    return RabbitMqCli.listQueues();
+  }
+
 }

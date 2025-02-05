@@ -4,8 +4,10 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
 
-final class RabbitMqCli {
+public final class RabbitMqCli {
 
   private static final String DOCKER_PREFIX = "DOCKER:";
 
@@ -99,6 +101,31 @@ final class RabbitMqCli {
     return pr.exitValue();
   }
 
+  static List<QueueInfo> listQueues() {
+    String output =
+        rabbitmqctl("list_queues -q name,messages,messages_ready,messages_unacknowledged,exclusive").output();
+    String[] allLines = output.split("\n");
+    List<QueueInfo> result = new ArrayList<>();
+    for (int i = 1; i < allLines.length; i++) {
+      String line = allLines[i];
+      if (line != null && !line.trim().isEmpty()) {
+        String[] columns = line.split("\t");
+        result.add(
+            new QueueInfo(
+                columns[0],
+                Integer.parseInt(columns[1]),
+                Integer.parseInt(columns[2]),
+                Integer.parseInt(columns[3]),
+                Boolean.parseBoolean(columns[4])));
+      }
+    }
+    return result;
+  }
+
+  static QueueInfo queueInfo(String q) {
+    return listQueues().stream().filter(info -> q.equals(info.name())).findFirst().get();
+  }
+
   static class ProcessState {
 
     private final InputStreamPumpState inputState;
@@ -132,6 +159,42 @@ final class RabbitMqCli {
         }
         buffer.append(line).append("\n");
       }
+    }
+  }
+
+  public static class QueueInfo {
+    private final String name;
+    private final int messsageCount;
+    private final int readyMessageCount;
+    private final int unackedMessageCount;
+    private final boolean temporary;
+
+    QueueInfo(String name, int messsageCount, int readyMessageCount, int unackedMessageCount, boolean exclusive) {
+      this.name = name;
+      this.messsageCount = messsageCount;
+      this.readyMessageCount = readyMessageCount;
+      this.unackedMessageCount = unackedMessageCount;
+      this.temporary = exclusive;
+    }
+
+    public String name() {
+      return name;
+    }
+
+    int messsageCount() {
+      return messsageCount;
+    }
+
+    int readyMessageCount() {
+      return readyMessageCount;
+    }
+
+    int unackedMessageCount() {
+      return unackedMessageCount;
+    }
+
+    public boolean isTemporary() {
+      return temporary;
     }
   }
 }
