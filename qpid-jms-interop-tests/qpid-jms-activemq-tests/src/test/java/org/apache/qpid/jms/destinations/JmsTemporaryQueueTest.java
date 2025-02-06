@@ -32,6 +32,8 @@ import org.junit.jupiter.api.Timeout;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.UUID;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
@@ -43,18 +45,19 @@ public class JmsTemporaryQueueTest extends RabbitMqTestSupport {
 
     @Test
     @Timeout(60)
-    public void testCreateTemporaryQueue() throws Exception {
+    public void testCreatePublishConsumeTemporaryQueue() throws Exception {
         connection = createAmqpConnection();
         connection.start();
 
         Session session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
         assertNotNull(session);
         TemporaryQueue queue = session.createTemporaryQueue();
-        session.createConsumer(queue);
-        String queueName = queue.getQueueName();
+        MessageConsumer consumer = session.createConsumer(queue);
 
-        assertTrue(listQueues().stream().filter(RabbitMqCli.QueueInfo::isTemporary)
-            .anyMatch(queueInfo -> queueInfo.name().equals(queueName)));
+        MessageProducer producer = session.createProducer(queue);
+        String body = UUID.randomUUID().toString();
+        producer.send(session.createTextMessage(body));
+        assertEquals(body, consumer.receive(60_000).getBody(String.class));
     }
 
     @Test
